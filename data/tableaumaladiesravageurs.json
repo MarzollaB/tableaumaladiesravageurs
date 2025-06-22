@@ -1,45 +1,93 @@
 {
   "maladies": [
     {
-      "nom": "Septoriose",
-      "symptomes": "Taches ovales brunes sur feuilles inférieures, ponctuations noires visibles à la loupe.",
-      "conditions": "Hiver doux et printemps humide favorisant humidité prolongée sur feuilles.",
-      "recommandations": "Traiter à l’épiaison avec combinaison triazole + partenaire, enfouir les résidus, choisir variétés tolérantes.",
-      "image": "images/septoriose.jpg"
+      "nom": "Oïdium",
+      "description": "Apparition d’un feutrage blanc poudreux sur les faces supérieures des feuilles.",
+      "seuil": "Présence initiale observée, risque de dissémination rapide selon conditions climatiques.",
+      "recommandations": "Appliquer un fongicide adapté en phase précoce selon bulletin local. Surveiller régulièrement.",
+      "image": "images/oidium.jpg"
     },
     {
       "nom": "Rouille brune",
-      "symptomes": "Pustules brunes/oranges sur face supérieure des feuilles.",
-      "conditions": "Humidité sur feuilles pendant 6–8 h et T entre 5–25 °C, inoculum sur résidus.",
-      "recommandations": "Traitement à l’épiaison selon bulletin, rotation, variétés résistantes.",
+      "description": "Taches brunâtres/orangées apparaissant en pustules sur feuilles et tiges lors de conditions humides.",
+      "seuil": "Apparition de pustules sur plus de X% de la surface foliaire selon protocole régional.",
+      "recommandations": "Intervenir dès les premiers signes avec fongicide prescrit, rotation variétale et bonnes pratiques culturales.",
       "image": "images/rouillebrune.jpg"
+    },
+    {
+      "nom": "Rouille jaune",
+      "description": "Taches jaunâtres caractéristiques en pustules sur les feuilles, favorisées par temps humide et températures modérées.",
+      "seuil": "Nombre de pustules ou pourcentage de plantes infectées dépassant le seuil déterminé par le bulletin régional.",
+      "recommandations": "Traitement fongicide au stade recommandé, variétés résistantes si disponible, favoriser la ventilation du couvert.",
+      "image": "images/rouillejaune.jpg"
+    },
+    {
+      "nom": "Septoriose",
+      "description": "Taches foliaires grisâtres à centre clair et bord brun foncé, provoquant dessèchement des feuilles infectées.",
+      "seuil": "Symptômes sur plus de X feuilles ou indice de sévérité dépassé selon protocole de suivi.",
+      "recommandations": "Fongicide en phase montaison/croisière si conditions favorables, rotation, semences saines et gestion de la litière.",
+      "image": "images/septoriose.jpg"
+    },
+    {
+      "nom": "Fusariose",
+      "description": "Pourriture et dépérissement à la base des tiges (collet), pouvant conduire à la verse ou la mort des jeunes plants.",
+      "seuil": "Symptômes détectés sur plantules ou semis, selon évaluation locale du risque de verse ou perte.",
+      "recommandations": "Traitement de semences fongicide si nécessaire, rotation des cultures, pratiques ambitieuses d’assainissement du sol.",
+      "image": "images/fusariose.jpg"
     }
-    /* … autres maladies … */
   ],
+
   "ravageurs": [
     {
       "nom": "Mouche grise (Delia coarctata)",
-      "description": "Présence de pontes fin d’été dans parcelle précédente, risque de larves détruisant le plateau de tallage.",
-      "seuil": "Nombre d’œufs/m² selon protocole CADCO (ex. seuil > X œufs/m² justifie traitement).",
-      "recommandations": "Estimation du risque avant semis, traitement de semence si seuil dépassé, préparation du sol, rotation.",
+      "description": "Larves s’attaquant au collet et aux racines des plantules, provoquant dépérissement ou levée incomplète.",
+      "seuil": "Nombre d’œufs ou larves/m² selon protocole CADCO justifie intervention.",
+      "recommandations": "Piégeage de référence, traitement de semence ou de sol si seuil dépassé, méthodes culturales de prévention.",
       "image": "images/mouchegrise.jpg"
     },
     {
       "nom": "Limace grise (Deroceras reticulatum)",
-      "description": "Plantules rongées en début de culture, levée compromise si infestation élevée.",
-      "seuil": "Piégeage post-semis ≥ 10 limaces/m² justifie traitement.",
-      "recommandations": "Piégeage, épandage ciblé de granulés-appâts, travail superficiel interculture.",
+      "description": "Plantules rongées au ras du sol, levée compromise en cas d’infestation élevée.",
+      "seuil": "Piégeage post-semis ≥ 10 limaces/m² justifie action.",
+      "recommandations": "Piégeage, granulés anti-limaces, intervalles culturales réduisant l’humidité au sol.",
       "image": "images/limacegrise.jpg"
+    },
+    {
+      "nom": "Cécidomyie (ex. mouches du collet)",
+      "description": "Larves creusant des galeries au collet des jeunes plants, provoquant dépérissements localisés.",
+      "seuil": "Nombre de larves/pièges ou dégâts observés dépassant seuil du bulletin régional.",
+      "recommandations": "Piégeage, lutte biologique ou chimique si seuil atteint, pratiques culturales limitant habitat larvaire.",
+      "image": "images/cecidomyie.jpg"
+    },
+    {
+      "nom": "Puceron des céréales",
+      "description": "Colonies de pucerons suceurs affaiblissant la plante, pouvant transmettre des virus.",
+      "seuil": "Seuil de nombre de pucerons/plante ou % de plantes infestées selon bulletin local.",
+      "recommandations": "Encourager auxiliaires, traitement insecticide ciblé si seuil dépassé, observation régulière.",
+      "image": "images/puceron.jpg"
+    },
+    {
+      "nom": "Taupin (larve d’Elateridae)",
+      "description": "Larves s’attaquant aux racines et plantules, provoquant arrachements et affaiblissement.",
+      "seuil": "Dommages observés en phase levée ou pièges révélant population supérieure au seuil régional.",
+      "recommandations": "Rotation, pièges spécifiques, amendements du sol, traitements si recommandés par bulletin local.",
+      "image": "images/taupin.jpg"
+    },
+    {
+      "nom": "Oscinie (Oscinella frit)",
+      "description": "Larves minant les jeunes plantules, provoquant galeries foliaires et affaiblissement.",
+      "seuil": "Nombre de galeries ou plantules endommagées dépassant seuil d’intervention.",
+      "recommandations": "Surveiller et traiter si besoin selon bulletin, favoriser lutte biologique si possible.",
+      "image": "images/oscinie.jpg"
     }
-    /* … autres ravageurs … */
   ],
+
   "epoquesNuisibilite": [
     {
       "nom": "Tableau des époques de nuisibilité",
-      "periode": "Exemple : Avril–Mai: phase tallage; Mai–Juin: épiaison; …",
-      "commentaire": "Correspond aux stades du froment où les maladies/ravageurs sont les plus critiques.",
+      "periode": "Avril–Mai : phase tallage; Mai–Juin : montaison; Juin–Juillet : floraison; Juillet–Août : remplissage; Août–Septembre : maturité",
+      "commentaire": "Correspond aux stades critiques où maladies ou ravageurs exercent leur nuisance maximale sur céréales.",
       "image": "images/tableau-epoques-nuisibilite.jpg"
     }
-    /* Si plusieurs périodes ou sous-tableaux, répétez ici */
   ]
 }
