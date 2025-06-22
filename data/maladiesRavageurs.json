@@ -1,0 +1,45 @@
+{
+  "maladies": [
+    {
+      "nom": "Septoriose",
+      "symptomes": "Taches ovales brunes sur feuilles inférieures, ponctuations noires visibles à la loupe.",
+      "conditions": "Hiver doux et printemps humide favorisant humidité prolongée sur feuilles.",
+      "recommandations": "Traiter à l’épiaison avec combinaison triazole + partenaire, enfouir les résidus, choisir variétés tolérantes.",
+      "image": "images/septoriose.jpg"
+    },
+    {
+      "nom": "Rouille brune",
+      "symptomes": "Pustules brunes/oranges sur face supérieure des feuilles.",
+      "conditions": "Humidité sur feuilles pendant 6–8 h et T entre 5–25 °C, inoculum sur résidus.",
+      "recommandations": "Traitement à l’épiaison selon bulletin, rotation, variétés résistantes.",
+      "image": "images/rouillebrune.jpg"
+    }
+    /* … autres maladies … */
+  ],
+  "ravageurs": [
+    {
+      "nom": "Mouche grise (Delia coarctata)",
+      "description": "Présence de pontes fin d’été dans parcelle précédente, risque de larves détruisant le plateau de tallage.",
+      "seuil": "Nombre d’œufs/m² selon protocole CADCO (ex. seuil > X œufs/m² justifie traitement).",
+      "recommandations": "Estimation du risque avant semis, traitement de semence si seuil dépassé, préparation du sol, rotation.",
+      "image": "images/mouchegrise.jpg"
+    },
+    {
+      "nom": "Limace grise (Deroceras reticulatum)",
+      "description": "Plantules rongées en début de culture, levée compromise si infestation élevée.",
+      "seuil": "Piégeage post-semis ≥ 10 limaces/m² justifie traitement.",
+      "recommandations": "Piégeage, épandage ciblé de granulés-appâts, travail superficiel interculture.",
+      "image": "images/limacegrise.jpg"
+    }
+    /* … autres ravageurs … */
+  ],
+  "epoquesNuisibilite": [
+    {
+      "nom": "Tableau des époques de nuisibilité",
+      "periode": "Exemple : Avril–Mai: phase tallage; Mai–Juin: épiaison; …",
+      "commentaire": "Correspond aux stades du froment où les maladies/ravageurs sont les plus critiques.",
+      "image": "images/tableau-epoques-nuisibilite.jpg"
+    }
+    /* Si plusieurs périodes ou sous-tableaux, répétez ici */
+  ]
+}
