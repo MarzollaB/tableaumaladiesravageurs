@@ -1,1 +1,218 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Référence : Maladies, Ravageurs & Époques de nuisibilité</title>
+  <style>
+    /* Styles de base pour un affichage clair */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 1em;
+      line-height: 1.5;
+    }
+    #container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 1em 1.5em;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-top: 0;
+    }
+    label, select, button {
+      font-size: 1em;
+    }
+    select {
+      padding: 0.4em 0.6em;
+      margin-left: 0.5em;
+    }
+    button {
+      margin-left: 1em;
+      padding: 0.4em 0.8em;
+      cursor: pointer;
+    }
+    #message {
+      color: red;
+      margin-top: 0.5em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1em;
+      table-layout: fixed;
+      word-wrap: break-word;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      vertical-align: top;
+    }
+    th {
+      background: #eee;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+    img {
+      max-width: 120px;
+      max-height: 80px;
+      object-fit: contain;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .caption {
+      font-size: 0.9em;
+      color: #555;
+      text-align: center;
+    }
+    .hidden {
+      display: none;
+    }
+    /* Responsivité pour petits écrans */
+    @media (max-width: 600px) {
+      img {
+        max-width: 80px;
+        max-height: 60px;
+      }
+      th, td {
+        font-size: 0.9em;
+        padding: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Référence : Maladies, Ravageurs & Époques de nuisibilité</h1>
+    <div>
+      <label for="selectRef">Choisir un tableau :</label>
+      <select id="selectRef">
+        <option value="">-- Sélectionner --</option>
+        <option value="maladies">Tableau des maladies</option>
+        <option value="ravageurs">Tableau des ravageurs</option>
+        <option value="epoquesNuisibilite">Tableau des époques de nuisibilité</option>
+      </select>
+    </div>
+    <p id="message"></p>
+    <div id="tableContainer"></div>
+    <footer style="text-align:center; margin-top:1.5em; font-size:0.9em; color:#666;">
+      &copy; 2025 Votre Nom ou Organisation. Données hébergées sur GitHub Pages.
+    </footer>
+  </div>
+
+  <script>
+    // CHEMIN RELATIF VERS LE JSON : 
+    const jsonUrl = 'data/maladiesRavageurs.json';
+
+    let dataGlobal = null;
+    const selectRef = document.getElementById('selectRef');
+    const tableContainer = document.getElementById('tableContainer');
+    const messageEl = document.getElementById('message');
+
+    // Charger le JSON au démarrage
+    fetch(jsonUrl)
+      .then(res => {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(data => {
+        dataGlobal = data;
+      })
+      .catch(err => {
+        console.error('Erreur chargement JSON:', err);
+        messageEl.textContent = 'Impossible de charger les données JSON. Vérifiez le chemin "' + jsonUrl + '".';
+      });
+
+    // Événement sur le select
+    selectRef.addEventListener('change', () => {
+      const key = selectRef.value;
+      tableContainer.innerHTML = '';
+      messageEl.textContent = '';
+      if (!key) {
+        // rien à afficher
+        return;
+      }
+      if (!dataGlobal || !dataGlobal[key]) {
+        messageEl.textContent = 'Pas de données disponibles pour ce choix.';
+        return;
+      }
+      renderTable(dataGlobal[key], selectRef.options[selectRef.selectedIndex].text);
+    });
+
+    function renderTable(rows, title) {
+      // Titre secondaire
+      const h2 = document.createElement('h2');
+      h2.innerText = title;
+      tableContainer.appendChild(h2);
+
+      if (!Array.isArray(rows) || rows.length === 0) {
+        const p = document.createElement('p');
+        p.innerText = 'Aucune ligne à afficher.';
+        tableContainer.appendChild(p);
+        return;
+      }
+
+      // Création du tableau
+      const table = document.createElement('table');
+      const thead = document.createElement('thead');
+      const trHead = document.createElement('tr');
+
+      // Déterminer les colonnes : toutes les clés de l’objet, sauf 'id' si présent.
+      const sample = rows[0];
+      const cols = Object.keys(sample).filter(c => c !== 'id');
+      cols.forEach(col => {
+        const th = document.createElement('th');
+        // Label : transformer camelCase en "Camel Case", première lettre majuscule
+        let label = col.replace(/([A-Z])/g, ' $1');
+        label = label.charAt(0).toUpperCase() + label.slice(1);
+        th.innerText = label;
+        trHead.appendChild(th);
+      });
+      thead.appendChild(trHead);
+      table.appendChild(thead);
+
+      const tbody = document.createElement('tbody');
+      rows.forEach(row => {
+        const tr = document.createElement('tr');
+        cols.forEach(col => {
+          const td = document.createElement('td');
+          // Si colonne contient 'image' et valeur non vide, afficher <img>
+          if (col.toLowerCase().includes('image') && typeof row[col] === 'string' && row[col].trim() !== '') {
+            const img = document.createElement('img');
+            img.src = row[col];
+            img.alt = row.nom || '';
+            img.onerror = () => {
+              console.warn('Erreur chargement image:', row[col]);
+              img.style.display = 'none';
+            };
+            td.appendChild(img);
+            // Ajouter légende sous l'image si 'nom' présent
+            if (row.nom) {
+              const cap = document.createElement('div');
+              cap.className = 'caption';
+              cap.innerText = row.nom;
+              td.appendChild(cap);
+            }
+          } else {
+            // Valeur texte ou autre
+            const val = row[col];
+            td.innerText = val != null ? String(val) : '';
+          }
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+      tableContainer.appendChild(table);
+    }
+  </script>
+</body>
+</html>
