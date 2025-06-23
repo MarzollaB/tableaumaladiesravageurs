@@ -5,17 +5,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Référence : Maladies, Ravageurs & Époques de nuisibilité</title>
   <style>
-    body { font-family: system-ui, sans-serif; margin: 0; padding: 0; background:#f9f9f9; color:#333; }
-    main { max-width: 90vw; margin: 2em auto; padding: 1em; background:#fff; border-radius: 8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
-    h1 { text-align:center; }
-    label, select { font-size:1em; }
-    select { padding: 0.3em 0.5em; }
-    table { max-width:100%; border-collapse: collapse; margin:1em auto; }
-    th, td { border:1px solid #ccc; padding: 0.5em; text-align:left; vertical-align: top; }
-    th { background:#eee; position: sticky; top:0; }
-    img { width: 150%; height: 150%; display: block; }
-    .no-data { color: red; margin-top:1em; }
-    footer { text-align:center; margin-top:2em; font-size:0.9em; color:#666; }
+    /* Styles de base */
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    main {
+      max-width: 90vw;
+      margin: 2em auto;
+      padding: 1em;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-top: 0;
+    }
+    label, select {
+      font-size: 1em;
+    }
+    select {
+      padding: 0.3em 0.5em;
+    }
+    /* Tableau centré et largeur max */
+    table {
+      width: 100%;
+      max-width: 800px; /* ajustez selon vos préférences */
+      margin: 1em auto; /* centre horizontalement */
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5em;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #eee;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    /* Miniatures d’images dans le tableau */
+    img.table-image {
+      max-width: 150px;   /* ajustez la taille des miniatures */
+      height: auto;
+      display: block;
+      cursor: pointer;    /* indique qu’on peut cliquer */
+    }
+    /* Message “pas de données” */
+    .no-data {
+      color: red;
+      margin-top: 1em;
+      text-align: center;
+    }
+    footer {
+      text-align: center;
+      margin-top: 2em;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    /* ******** Lightbox styles ******** */
+    #lightbox-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+    #lightbox-overlay.visible {
+      visibility: visible;
+      opacity: 1;
+    }
+    #lightbox-overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      box-shadow: 0 2px 10px rgba(255,255,255,0.5);
+      border: 2px solid #fff;
+      border-radius: 4px;
+    }
+    /* Petit texte en bas de l’overlay */
+    #lightbox-overlay::after {
+      content: "Cliquez pour fermer";
+      position: absolute;
+      bottom: 20px;
+      color: #fff;
+      font-size: 0.9em;
+      text-align: center;
+      width: 100%;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
@@ -34,8 +124,13 @@
   </main>
   <footer>© 2025 Ton Nom ou Organisation. Données hébergées sur GitHub Pages.</footer>
 
+  <!-- Lightbox overlay pour agrandissement d’image -->
+  <div id="lightbox-overlay">
+    <img id="lightbox-image" src="" alt="Agrandissement" />
+  </div>
+
   <script>
-    // ** Adapte ce chemin au nom exact de ton fichier JSON et à son emplacement **
+    // ** Adaptez ce chemin au nom exact de votre fichier JSON et à son emplacement **
     const JSON_PATH = 'data/tableaumaladiesravageurs.json';
 
     async function chargerDonnees() {
@@ -53,17 +148,17 @@
       }
     }
 
+    // Génère le HTML du tableau à partir d’un array d’objets
     function genererTable(arrayObjets) {
       if (!Array.isArray(arrayObjets) || arrayObjets.length === 0) {
         return '<p class="no-data">Aucune donnée disponible pour ce tableau.</p>';
       }
-      // Récupère toutes les clés à partir du premier objet
+      // Récupère les clés du premier objet
       const allKeys = Object.keys(arrayObjets[0]);
-      // On exclut la clé "image" des colonnes normales, pour la traiter à part
+      // Exclut la clé "image" des colonnes normales
       const keysSansImage = allKeys.filter(k => k !== 'image');
       let html = '<table><thead><tr>';
       keysSansImage.forEach(col => {
-        // Éventuelle mise en forme du titre de colonne
         const titre = col.charAt(0).toUpperCase() + col.slice(1);
         html += `<th>${titre}</th>`;
       });
@@ -78,8 +173,8 @@
         });
         const imgPath = item.image;
         if (imgPath) {
-          // On suppose que `item.image` est un chemin relatif comme "images/nom.jpg"
-          html += `<td><img src="${imgPath}" alt="Image de ${item.nom||''}" onerror="this.style.display='none';"></td>`;
+          // Ajoute class et onclick pour lightbox
+          html += `<td><img class="table-image" src="${imgPath}" alt="Image de ${item.nom||''}" onerror="this.style.display='none';" onclick="showLightbox(this.src)"></td>`;
         } else {
           html += '<td></td>';
         }
@@ -89,10 +184,47 @@
       return html;
     }
 
+    // Lightbox : ouvrir l’image agrandie
+    function showLightbox(src) {
+      const overlay = document.getElementById('lightbox-overlay');
+      const img = document.getElementById('lightbox-image');
+      if (overlay && img) {
+        img.src = src;
+        overlay.classList.add('visible');
+      }
+    }
+    // Lightbox : fermer
+    function hideLightbox() {
+      const overlay = document.getElementById('lightbox-overlay');
+      if (overlay) {
+        overlay.classList.remove('visible');
+        // Optionnel : vider la source après transition
+        // setTimeout(() => {
+        //   const img = document.getElementById('lightbox-image');
+        //   if (img) img.src = '';
+        // }, 300);
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', async () => {
+      // Liaison pour fermer le lightbox au clic sur l’overlay
+      const overlay = document.getElementById('lightbox-overlay');
+      const imgLB = document.getElementById('lightbox-image');
+      if (overlay) {
+        overlay.addEventListener('click', hideLightbox);
+      }
+      if (imgLB) {
+        // Empêche la fermeture si on clique directement sur l’image
+        imgLB.addEventListener('click', function(e) {
+          e.stopPropagation();
+        });
+      }
+
+      // Chargement des données JSON
       const select = document.getElementById('choixTableau');
       const conteneur = document.getElementById('contenuTableau');
       const data = await chargerDonnees();
+
       select.addEventListener('change', () => {
         conteneur.innerHTML = '';
         if (!data) {
