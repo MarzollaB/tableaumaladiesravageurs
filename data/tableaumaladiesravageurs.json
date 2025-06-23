@@ -1,93 +1,365 @@
 {
   "maladies": [
     {
-      "nom": "Oïdium",
-      "description": "Apparition d’un feutrage blanc poudreux sur les faces supérieures des feuilles.",
-      "seuil": "Présence initiale observée, risque de dissémination rapide selon conditions climatiques.",
-      "recommandations": "Appliquer un fongicide adapté en phase précoce selon bulletin local. Surveiller régulièrement.",
+      "nom": "Fusariose / Microdochium (Fusarium roseum / Microdochium nivale)",
+      "stadesSensibles": "Floraison et parfois germination (fonte des semis)",
+      "symptomes": [
+        "Fonte de semis : germination, puis nécrose des racines et du coléoptile",
+        "Base de la tige desséchée",
+        "Moisis­sure rose sur épi et échaudage"
+      ],
+      "sourceInoculum": [
+        "Se conserve dans le sol",
+        "Importation de matières organiques",
+        "Résidus de cultures"
+      ],
+      "facteursFavorables": [
+        "Pluie et vent",
+        "Variétés sensibles",
+        "Température > 15 °C et humidité élevée pendant ≥ 12 h"
+      ],
+      "observationsEtLuttes": [
+        "Variétés résistantes",
+        "Semences saines",
+        "Rotation longue",
+        "Pas de blé après maïs avec fusariose sauf si labour",
+        "Pas d’excès d’azote sans augmenter PK",
+        "Traitement fongicide à la floraison : contre Fusarium (prothioconazole ≈ tébuconazole ≈ metconazole ≈ dimoxystrobine) ; contre Microdochium (prothioconazole, car résistant aux strobilurines)"
+      ],
+      "image": "images/fusariose.jpg"
+    },
+    {
+      "nom": "Oïdium (Erysiphe graminis)",
+      "stadesSensibles": "Avant la floraison",
+      "symptomes": [
+        "Face sup des feuilles : feutrage blanc",
+        "Feutrage gris + points noirs",
+        "Si épis touchés : croûtes blanches sur glumes"
+      ],
+      "sourceInoculum": [
+        "Pailles et graminées sauvages",
+        "Conidies apportées par le vent, par temps sec et ensoleillé"
+      ],
+      "facteursFavorables": [
+        "Température entre 2 et 30 °C (optimum ≈ 20 °C)",
+        "Humidité relative suffisante sauf eau libre",
+        "Forte densité",
+        "Alternance jours chauds et humides"
+      ],
+      "observationsEtLuttes": [
+        "Traitement fongicide à l’épiaison : cyflufenamide ≈ métrafenone ≥ fenpropidine ≈ spiroxamine ≈ quinoxyfen",
+        "Traitement uniquement si dernières feuilles contaminées",
+        "Résistance aux strobilurines"
+      ],
       "image": "images/oidium.jpg"
     },
     {
-      "nom": "Rouille brune",
-      "description": "Taches brunâtres/orangées apparaissant en pustules sur feuilles et tiges lors de conditions humides.",
-      "seuil": "Apparition de pustules sur plus de X% de la surface foliaire selon protocole régional.",
-      "recommandations": "Intervenir dès les premiers signes avec fongicide prescrit, rotation variétale et bonnes pratiques culturales.",
-      "image": "images/rouillebrune.jpg"
+      "nom": "Helminthosporiose (Pyrenophora tritici-repentis)",
+      "stadesSensibles": "Après floraison",
+      "symptomes": [
+        "Feuilles : taches jaunes elliptiques parallèles aux nervures (similaires à taches physiologiques)",
+        "Pous­sière noire sur taches",
+        "Taches coalescentes et feuilles desséchées"
+      ],
+      "sourceInoculum": [
+        "Résidus de céréales mal enfouis",
+        "Blé après blé + non-labour"
+      ],
+      "facteursFavorables": [
+        "Forte humidité",
+        "Température élevée"
+      ],
+      "observationsEtLuttes": [
+        "Variétés résistantes",
+        "Rotation",
+        "Choix du dernier fongicide important : prothioconazole ≥ propiconazole ≥ tébuconazole + picostrobine pour lutter contre autres maladies"
+      ],
+      "image": "images/helminthosporiose.jpg"
     },
     {
-      "nom": "Rouille jaune",
-      "description": "Taches jaunâtres caractéristiques en pustules sur les feuilles, favorisées par temps humide et températures modérées.",
-      "seuil": "Nombre de pustules ou pourcentage de plantes infectées dépassant le seuil déterminé par le bulletin régional.",
-      "recommandations": "Traitement fongicide au stade recommandé, variétés résistantes si disponible, favoriser la ventilation du couvert.",
+      "nom": "Rouille jaune (Puccinia striiformis)",
+      "stadesSensibles": "Tallage, redressement, montaison, épiaison",
+      "symptomes": [
+        "Présence de pustules jaunes oranges, petites et disposées en ligne entre les nervures",
+        "À maturité : stries noires apparaissent",
+        "Au début, foyers (ronds) dans la culture"
+      ],
+      "sourceInoculum": [
+        "Reste sur repousses et graminées adventices"
+      ],
+      "facteursFavorables": [
+        "Printemps frais, couvert, humide et venteux",
+        "Température ≥ 2 °C",
+        "Humidité relative > 80 % pendant ≥ 18 h"
+      ],
+      "observationsEtLuttes": [
+        "Variétés résistantes car perte de rendement ≈ 40 %",
+        "Traitement fongicide : triazoles (époxiconazole > cyproconazole >> prothioconazole)",
+        "Traiter dès détection de foyer sinon 1er à 2ème nœud"
+      ],
       "image": "images/rouillejaune.jpg"
     },
     {
-      "nom": "Septoriose",
-      "description": "Taches foliaires grisâtres à centre clair et bord brun foncé, provoquant dessèchement des feuilles infectées.",
-      "seuil": "Symptômes sur plus de X feuilles ou indice de sévérité dépassé selon protocole de suivi.",
-      "recommandations": "Fongicide en phase montaison/croisière si conditions favorables, rotation, semences saines et gestion de la litière.",
+      "nom": "Rouille brune (Puccinia recondita)",
+      "stadesSensibles": "Redressement, épiaison",
+      "symptomes": [
+        "Présence de pustules brunes/oranges sur face supérieure des feuilles",
+        "En fin de saison : apparition de pustules noires"
+      ],
+      "sourceInoculum": [
+        "Dispersion des spores par le vent",
+        "Urédospores germent entre 5 °C et 25 °C"
+      ],
+      "facteursFavorables": [
+        "Germination des spores en présence d’eau libre",
+        "Développement à partir de fin mai"
+      ],
+      "observationsEtLuttes": [
+        "Variétés résistantes",
+        "Si variétés sensibles : protection fongicide préventive au stade développement foliaire ; curative au stade épiaison : strobilurines + triazoles (époxiconazole ≈ tébuconazole ≥ cyproconazole >> prothioconazole)"
+      ],
+      "image": "images/rouillebrune.jpg"
+    },
+    {
+      "nom": "Septoriose (Septoria tritici et Septoria nodorum)",
+      "stadesSensibles": "Germination, levée, 2 feuilles jusqu’à épiaison",
+      "symptomes": [
+        "Feuilles : taches ovales, pales, puis brunes + ponctuations noires",
+        "Taches provoquant dessèchement des feuilles",
+        "Nœuds : taches en losange"
+      ],
+      "sourceInoculum": [
+        "Résidus de culture (paille)",
+        "Semences contaminées",
+        "Feuilles anciennes"
+      ],
+      "facteursFavorables": [
+        "Semis précoces",
+        "Hiver doux et printemps humide",
+        "Humidité ≥ 15 jours à l’épiaison",
+        "Gouttes de pluie contenant spores et frottement des feuilles"
+      ],
+      "observationsEtLuttes": [
+        "Repiquage sur feuilles supérieures si inoculum important",
+        "Rotation longue + enfouir résidus et lutter contre repousses/adventices",
+        "Semis peu profond",
+        "Traitement des semences",
+        "Alterner triazoles au cours de la saison (prothioconazole ≥ époxiconazole > cyproconazole >> fluquinconazole > tébuconazole) + partenaire (chlorothalonil en préventif ou boscalid ou prochloraz)",
+        "Résistance aux strobilurines"
+      ],
       "image": "images/septoriose.jpg"
     },
     {
-      "nom": "Fusariose",
-      "description": "Pourriture et dépérissement à la base des tiges (collet), pouvant conduire à la verse ou la mort des jeunes plants.",
-      "seuil": "Symptômes détectés sur plantules ou semis, selon évaluation locale du risque de verse ou perte.",
-      "recommandations": "Traitement de semences fongicide si nécessaire, rotation des cultures, pratiques ambitieuses d’assainissement du sol.",
-      "image": "images/fusariose.jpg"
+      "nom": "Piétin verse (Pseudo-cercosporella herpotrichoides)",
+      "stadesSensibles": "Épi à 1 cm du plateau de tallage, fin d’hiver",
+      "symptomes": [
+        "Taches allongées, ocellées, brunes en périphérie, claires au centre sur gaines à la base des tiges",
+        "Échaudage ± important des grains",
+        "Verse possible en fin de végétation"
+      ],
+      "sourceInoculum": [
+        "Contamination primaire par conidies aériennes dès fin automne",
+        "Présence dans chaumes des années précédentes"
+      ],
+      "facteursFavorables": [
+        "T° entre 4 et 13 °C (optimum 7 °C)",
+        "Humidité relative > 85 % pendant ≥ 15 h",
+        "Hiver doux et humide"
+      ],
+      "observationsEtLuttes": [
+        "Variété peu sensible",
+        "Éviter semis précoces et forte densité",
+        "Enfouir chaumes du précédent",
+        "Rotation longue, éviter précédents avec excès d’azote",
+        "Fongicide au stade épi 1 cm (cyprodinil ≥ prothioconazole ≈ prochloraz ≈ boscalid ≥ métrafenone)"
+      ],
+      "image": "images/pietinverse.jpg"
+    },
+    {
+      "nom": "Piétin échaudage (Gaeumannomyces graminis)",
+      "stadesSensibles": "Floraison",
+      "symptomes": [
+        "Coloration sombre de la base de la tige et sur racines",
+        "Infestation plus importante → coloration noire typique",
+        "Maturation précoce et épis blancs"
+      ],
+      "sourceInoculum": [
+        "Se conserve dans le sol, propage via résidus de chaumes, pailles, repousses et adventices"
+      ],
+      "facteursFavorables": [
+        "Précipitations abondantes",
+        "Température du sol 12–20 °C",
+        "Sols légers/sableux"
+      ],
+      "observationsEtLuttes": [
+        "Rotation rapide céréale sur céréale avec précédent cultural de blé",
+        "Éliminer chiendents",
+        "Approvisionnement en minéraux des jeunes plantes",
+        "Traitement semences au silthiopham (Latitude)",
+        "Pas de produit agréé en cours de végétation"
+      ],
+      "image": "images/pietinechaudage.jpg"
     }
   ],
-
   "ravageurs": [
     {
-      "nom": "Mouche grise (Delia coarctata)",
-      "description": "Larves s’attaquant au collet et aux racines des plantules, provoquant dépérissement ou levée incomplète.",
-      "seuil": "Nombre d’œufs ou larves/m² selon protocole CADCO justifie intervention.",
-      "recommandations": "Piégeage de référence, traitement de semence ou de sol si seuil dépassé, méthodes culturales de prévention.",
+      "nom": "Mouche grise",
+      "nomLatin": "Delia coarctata",
+      "ordre": "Diptère",
+      "symptomesOuDegats": [
+        "Larve pénètre au niveau du plateau de tallage et ronge le cœur de la plantule",
+        "Jaunissement de la plus jeune feuille",
+        "Destruction de 2–3 talles"
+      ],
+      "facteursFavorables": [
+        "Précédent betterave (pfs chicorée ou pomme de terre)",
+        "Semis tardif",
+        "Printemps froid",
+        "Sol creux en profondeur",
+        "Hiver sec"
+      ],
+      "lutteCulturaleOuBiologique": [
+        "Préparation soignée du sol (sans creux où larves se nymphosent)"
+      ],
+      "lutteChimique": [
+        "Traitement de semences"
+      ],
+      "seuilIntervention": "Selon protocole CADCO : nombre d’œufs/m² justifie traitement" ,
       "image": "images/mouchegrise.jpg"
     },
     {
-      "nom": "Limace grise (Deroceras reticulatum)",
-      "description": "Plantules rongées au ras du sol, levée compromise en cas d’infestation élevée.",
-      "seuil": "Piégeage post-semis ≥ 10 limaces/m² justifie action.",
-      "recommandations": "Piégeage, granulés anti-limaces, intervalles culturales réduisant l’humidité au sol.",
-      "image": "images/limacegrise.jpg"
+      "nom": "Oscinie",
+      "nomLatin": "Oscinella frit",
+      "ordre": "Diptère",
+      "symptomesOuDegats": [
+        "Gaine perforée",
+        "Au stade 2 feuilles, la feuille centrale flétrit, jaunit et se dessèche"
+      ],
+      "facteursFavorables": [
+        "Repousses de céréales",
+        "Terre déchaumée en fin d'été"
+      ],
+      "lutteCulturaleOuBiologique": [
+        "Traitement de semences"
+      ],
+      "lutteChimique": [
+        "Traitement de semences"
+      ],
+      "seuilIntervention": "Non spécifié précisément, se référer aux bulletins locaux",
+      "image": "images/oscinie.jpg"
     },
     {
-      "nom": "Cécidomyie (ex. mouches du collet)",
-      "description": "Larves creusant des galeries au collet des jeunes plants, provoquant dépérissements localisés.",
-      "seuil": "Nombre de larves/pièges ou dégâts observés dépassant seuil du bulletin régional.",
-      "recommandations": "Piégeage, lutte biologique ou chimique si seuil atteint, pratiques culturales limitant habitat larvaire.",
-      "image": "images/cecidomyie.jpg"
-    },
-    {
-      "nom": "Puceron des céréales",
-      "description": "Colonies de pucerons suceurs affaiblissant la plante, pouvant transmettre des virus.",
-      "seuil": "Seuil de nombre de pucerons/plante ou % de plantes infestées selon bulletin local.",
-      "recommandations": "Encourager auxiliaires, traitement insecticide ciblé si seuil dépassé, observation régulière.",
-      "image": "images/puceron.jpg"
-    },
-    {
-      "nom": "Taupin (larve d’Elateridae)",
-      "description": "Larves s’attaquant aux racines et plantules, provoquant arrachements et affaiblissement.",
-      "seuil": "Dommages observés en phase levée ou pièges révélant population supérieure au seuil régional.",
-      "recommandations": "Rotation, pièges spécifiques, amendements du sol, traitements si recommandés par bulletin local.",
+      "nom": "Taupin",
+      "nomLatin": "Agriotes lineatus",
+      "ordre": "Coléoptère",
+      "symptomesOuDegats": [
+        "Tige sectionnée",
+        "Jaunissement de la feuille centrale"
+      ],
+      "facteursFavorables": [
+        "Précédent prairie",
+        "Semis tardif"
+      ],
+      "lutteCulturaleOuBiologique": [
+        "Enfouir les végétaux"
+      ],
+      "lutteChimique": [
+        "Traitement de semences"
+      ],
+      "seuilIntervention": "Non spécifié précisément, se référer aux seuils locaux",
       "image": "images/taupin.jpg"
     },
     {
-      "nom": "Oscinie (Oscinella frit)",
-      "description": "Larves minant les jeunes plantules, provoquant galeries foliaires et affaiblissement.",
-      "seuil": "Nombre de galeries ou plantules endommagées dépassant seuil d’intervention.",
-      "recommandations": "Surveiller et traiter si besoin selon bulletin, favoriser lutte biologique si possible.",
-      "image": "images/oscinie.jpg"
+      "nom": "Cécidomyie",
+      "nomLatin": "Dasyneura spp.",
+      "ordre": "Diptère",
+      "symptomesOuDegats": [
+        "Dégâts aux grains"
+      ],
+      "facteursFavorables": [
+        "Températures élevées"
+      ],
+      "lutteCulturaleOuBiologique": [
+        "Aucun spécifique mentionné"
+      ],
+      "lutteChimique": [
+        "Pulvérisation (pyréthrinoïdes)"
+      ],
+      "seuilIntervention": "Non spécifié précisément, se référer aux bulletins",
+      "image": "images/cecidomyie.jpg"
+    },
+    {
+      "nom": "Corbeau freux",
+      "nomLatin": "Corvus frugilegus",
+      "ordre": "Passériforme",
+      "symptomesOuDegats": [
+        "Mange semences",
+        "Arrache plantules"
+      ],
+      "facteursFavorables": [
+        "Semis isolé, souvent tardif"
+      ],
+      "lutteCulturaleOuBiologique": [
+        "Épouvantail"
+      ],
+      "lutteChimique": [
+        "Traitement de semences (répulsifs)"
+      ],
+      "seuilIntervention": "Non spécifié précisément, observation de dégâts en parcelle",
+      "image": "images/corbeau.jpg"
+    },
+    {
+      "nom": "Puceron",
+      "nomLatin": "Aphididae sp.",
+      "ordre": "Homoptère",
+      "symptomesOuDegats": [
+        "Présent sur feuille",
+        "Entrave la photosynthèse",
+        "Vecteur de jaunisse nanisante"
+      ],
+      "facteursFavorables": [
+        "Semis précoce",
+        "Hiver doux",
+        "Printemps précoce"
+      ],
+      "lutteCulturaleOuBiologique": [
+        "Lâcher de coccinelles"
+      ],
+      "lutteChimique": [
+        "Traitement de semences",
+        "Pulvérisation (pyréthrinoïdes)"
+      ],
+      "seuilIntervention": "60 % des épis colonisés", 
+      "image": "images/puceron.jpg"
+    },
+    {
+      "nom": "Limace grise",
+      "nomLatin": "Deroceras reticulatum",
+      "ordre": "Gastéropode",
+      "symptomesOuDegats": [
+        "Feuilles effilochées"
+      ],
+      "facteursFavorables": [
+        "Été pluvieux",
+        "Couvert dense du précédent",
+        "Terres caillouteuses ou argileuses"
+      ],
+      "lutteCulturaleOuBiologique": [
+        "Travail superficiel en interculture (sécheresse et soleil)"
+      ],
+      "lutteChimique": [
+        "Épandage d’appâts granules en début de culture"
+      ],
+      "seuilIntervention": "5 % des plantes atteintes si levée compromise",
+      "image": "images/limacegrise.jpg"
     }
   ],
-
   "epoquesNuisibilite": [
     {
       "nom": "Tableau des époques de nuisibilité",
-      "periode": "Avril–Mai : phase tallage; Mai–Juin : montaison; Juin–Juillet : floraison; Juillet–Août : remplissage; Août–Septembre : maturité",
-      "commentaire": "Correspond aux stades critiques où maladies ou ravageurs exercent leur nuisance maximale sur céréales.",
-      "image": "images/tableau-epoques-nuisibilite.jpg"
+      "periode": "Voir tableau illustration des stades de nuisibilité du froment selon le cycle de développement (p. ex. tallage, montaison, épiaison, formation des grains, etc.)",
+      "commentaire": "Ce tableau regroupe les périodes critiques où le risque de nuisibilité est maximal pour les principales maladies et ravageurs. Référez-vous aux guides locaux ou bulletins officiels pour les dates précises selon région et conditions climatiques.",
+      "image": "images/tableau-epoque-nuisibilite.jpg"
     }
   ]
 }
